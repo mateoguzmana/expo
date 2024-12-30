@@ -411,6 +411,9 @@ export type Alarm = {
    */
   relativeOffset?: number;
   // @docsMissing
+  /**
+   * @platform ios
+   */
   structuredLocation?: AlarmLocation;
   /**
    * Method of alerting the user that this alarm should use. On iOS this is always a notification.
@@ -420,10 +423,10 @@ export type Alarm = {
 };
 
 // @docsMissing
+/**
+ * @platform ios
+ */
 export type AlarmLocation = {
-  /**
-   * @platform ios
-   */
   title?: string;
   proximity?: string;
   radius?: number;
@@ -1562,6 +1565,9 @@ export enum AttendeeType {
    * @platform ios
    */
   GROUP = 'group',
+  /**
+   * This specifies that an attendee is a resource, like a room, a cabbage, or something and not an actual person.
+   */
   RESOURCE = 'resource',
   /**
    * @platform android
@@ -1579,6 +1585,7 @@ export enum AttendeeType {
 
 // @docsMissing
 /**
+ * The alarm method, as set on the server.
  * @platform android
  */
 export enum AlarmMethod {
@@ -1589,30 +1596,69 @@ export enum AlarmMethod {
   DEFAULT = 'default',
 }
 
-// @docsMissing
 /**
+ * Defines how the event shows up for others when the calendar is shared.
  * @platform android
  */
 export enum EventAccessLevel {
+  /**
+   * Confidential is not used by the app.
+   */
   CONFIDENTIAL = 'confidential',
+  /**
+   * Private shares the event as a free/busy slot with no details.
+   */
   PRIVATE = 'private',
+  /**
+   * Public makes the contents visible to anyone with access to the calendar.
+   */
   PUBLIC = 'public',
+  /**
+   * Default access is controlled by the server and will be treated as public on the device.
+   */
   DEFAULT = 'default',
 }
 
-// @docsMissing
 /**
+ * Level of access that the user has for the calendar.
  * @platform android
  */
 export enum CalendarAccessLevel {
+  /**
+   * Full access to modify the calendar, but not the access control settings.
+   */
   CONTRIBUTOR = 'contributor',
+  /**
+   * Full access to modify the calendar, but not the access control settings.
+   */
   EDITOR = 'editor',
+  /**
+   * Can only see free/busy information about the calendar.
+   */
   FREEBUSY = 'freebusy',
+  /**
+   * Not used.
+   */
   OVERRIDE = 'override',
+  /**
+   * Full access to the calendar.
+   */
   OWNER = 'owner',
+  /**
+   * Can read all event details.
+   */
   READ = 'read',
+  /**
+   * Can reply yes/no/maybe to an event.
+   */
   RESPOND = 'respond',
+  /**
+   * Domain admin.
+   */
   ROOT = 'root',
+  /**
+   * Cannot access the calendar.
+   */
   NONE = 'none',
 }
 
