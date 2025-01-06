@@ -134,6 +134,7 @@ public class CameraView: ExpoView, EXAppLifecycleListener,
   let onPictureSaved = EventDispatcher()
   let onBarcodeScanned = EventDispatcher()
   let onResponsiveOrientationChanged = EventDispatcher()
+  let onRecordingStart = EventDispatcher()
 
   private var deviceOrientation: UIInterfaceOrientation {
     window?.windowScene?.interfaceOrientation ?? .unknown
@@ -568,6 +569,7 @@ public class CameraView: ExpoView, EXAppLifecycleListener,
       let fileUrl = URL(fileURLWithPath: path)
       videoRecordedPromise = promise
 
+      onRecordingStart()
       videoFileOutput.startRecording(to: fileUrl, recordingDelegate: self)
     }
   }

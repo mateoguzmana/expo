@@ -181,6 +181,9 @@ export type CameraPictureOptions = {
 };
 
 // @needsAudit
+/**
+ * These options are used to configure the recording of a video.
+ */
 export type CameraRecordingOptions = {
   /**
    * Maximum video duration in seconds.
@@ -433,6 +436,10 @@ export type CameraViewProps = ViewProps & {
    * @platform ios
    */
   onResponsiveOrientationChanged?: (event: ResponsiveOrientationChanged) => void;
+  /**
+   * Callback invoked when recording starts.
+   */
+  onRecordingStart?: () => void;
 };
 
 /**
@@ -460,6 +467,7 @@ export type CameraNativeProps = {
   onBarcodeScanned?: (event: { nativeEvent: BarcodeScanningResult }) => void;
   onPictureSaved?: PictureSavedListener;
   onResponsiveOrientationChanged?: ResponsiveOrientationChangedListener;
+  onRecordingStart?: () => void;
   facing?: string;
   flashMode?: string;
   enableTorch?: boolean;

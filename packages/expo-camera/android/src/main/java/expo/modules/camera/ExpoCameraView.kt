@@ -220,6 +220,8 @@ class ExpoCameraView(
     }
   )
 
+  private val onRecordingStart by EventDispatcher<Unit>()
+
   // Scanning-related properties
   private var shouldScanBarcodes = false
 
@@ -335,6 +337,9 @@ class ExpoCameraView(
         }
         .start(ContextCompat.getMainExecutor(context)) { event ->
           when (event) {
+            is VideoRecordEvent.Start -> {
+              onRecordingStart(Unit)
+            }
             is VideoRecordEvent.Finalize -> {
               when (event.error) {
                 VideoRecordEvent.Finalize.ERROR_FILE_SIZE_LIMIT_REACHED,

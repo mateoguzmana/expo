@@ -199,6 +199,11 @@ export default class CameraView extends Component {
             this.props.onResponsiveOrientationChanged(nativeEvent);
         }
     };
+    _onRecordingStart = () => {
+        if (this.props.onRecordingStart) {
+            this.props.onRecordingStart();
+        }
+    };
     _onObjectDetected = (callback) => ({ nativeEvent }) => {
         const { type } = nativeEvent;
         if (this._lastEvents[type] &&
@@ -226,7 +231,7 @@ export default class CameraView extends Component {
         const onBarcodeScanned = this.props.onBarcodeScanned
             ? this._onObjectDetected(this.props.onBarcodeScanned)
             : undefined;
-        return (<ExpoCamera {...nativeProps} ref={this._cameraRef} onCameraReady={this._onCameraReady} onMountError={this._onMountError} onBarcodeScanned={onBarcodeScanned} onPictureSaved={_onPictureSaved} onResponsiveOrientationChanged={this._onResponsiveOrientationChanged}/>);
+        return (<ExpoCamera {...nativeProps} ref={this._cameraRef} onCameraReady={this._onCameraReady} onMountError={this._onMountError} onBarcodeScanned={onBarcodeScanned} onPictureSaved={_onPictureSaved} onResponsiveOrientationChanged={this._onResponsiveOrientationChanged} onRecordingStart={this._onRecordingStart}/>);
     }
 }
 //# sourceMappingURL=CameraView.js.map

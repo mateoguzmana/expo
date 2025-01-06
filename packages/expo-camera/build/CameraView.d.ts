@@ -118,6 +118,7 @@ export default class CameraView extends Component<CameraViewProps> {
             orientation: CameraOrientation;
         };
     }) => void;
+    _onRecordingStart: () => void;
     _onObjectDetected: (callback?: Function) => ({ nativeEvent }: {
         nativeEvent: any;
     }) => void;

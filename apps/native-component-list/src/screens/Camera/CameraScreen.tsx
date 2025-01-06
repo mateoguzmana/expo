@@ -468,7 +468,8 @@ export default class CameraScreen extends React.Component<object, State> {
           barcodeScannerSettings={{
             barcodeTypes: ['qr', 'pdf417'],
           }}
-          onBarcodeScanned={this.state.barcodeScanning ? this.onBarcodeScanned : undefined}>
+          onBarcodeScanned={this.state.barcodeScanning ? this.onBarcodeScanned : undefined}
+          onRecordingStart={() => console.log('Recording started')}>
           {this.renderTopBar()}
           {this.renderBottomBar()}
         </CameraView>
