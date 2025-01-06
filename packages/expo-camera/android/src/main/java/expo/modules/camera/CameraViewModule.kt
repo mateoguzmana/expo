@@ -37,7 +37,8 @@ val cameraEvents = arrayOf(
   "onBarcodeScanned",
   "onFacesDetected",
   "onFaceDetectionError",
-  "onPictureSaved"
+  "onPictureSaved",
+  "onRecordingStart",
 )
 
 class CameraViewModule : Module() {

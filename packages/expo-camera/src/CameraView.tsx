@@ -256,6 +256,12 @@ export default class CameraView extends Component<CameraViewProps> {
     }
   };
 
+  _onRecordingStart = () => {
+    if (this.props.onRecordingStart) {
+      this.props.onRecordingStart();
+    }
+  }
+
   _onObjectDetected =
     (callback?: Function) =>
     ({ nativeEvent }: { nativeEvent: any }) => {
@@ -300,6 +306,7 @@ export default class CameraView extends Component<CameraViewProps> {
         onBarcodeScanned={onBarcodeScanned}
         onPictureSaved={_onPictureSaved}
         onResponsiveOrientationChanged={this._onResponsiveOrientationChanged}
+        onRecordingStart={this._onRecordingStart}
       />
     );
   }
